@@ -20,7 +20,7 @@ const db = {
 }
 
 app.get('/', (req: Request, res: Response) => {
-    res.json('Hello User!')
+    res.json('Hello User!!!')
 })
 app.get('/courses', (req: Request, res: Response) => {
     let foundCourse = db.courses
