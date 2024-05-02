@@ -7,6 +7,9 @@ app.use(jsonBodyMiddleware)
 
 const port = process.env.PORT || 3005
 
+const path = require('path');
+const fs = require('fs');
+const favicon = path.join('', 'public', 'favicon.ico');
 const db = {
     courses: [
         {id: 1, title: 'front-end'},
@@ -67,7 +70,12 @@ app.put('/courses/:id', (req: Request, res: Response) => {
         .status(HTTP_STATUSES.CREATED_201)
         .json(course)
 })
-app.use('/favicon.ico', express.static('favicon.ico'));
+
+app.get('/favicon.ico', (req: Request, res: Response) => {
+    res.status(HTTP_STATUSES.OK_200)
+        .setHeader('Content-Type', 'image/x-icon');
+    fs.createReadStream(favicon).pipe(res);
+})
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
