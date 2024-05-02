@@ -5,7 +5,7 @@ const app = express()
 const jsonBodyMiddleware = express.json()
 app.use(jsonBodyMiddleware)
 
-const port = process.env.PORT || 3005
+const port = process.env.PORT //  || 3005
 
 const path = require('path');
 const fs = require('fs');
