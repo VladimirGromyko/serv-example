@@ -7,9 +7,6 @@ app.use(jsonBodyMiddleware)
 
 const port = process.env.PORT || 3005
 
-const path = require('path');
-const fs = require('fs');
-
 const db = {
     courses: [
         {id: 1, title: 'front-end'},
