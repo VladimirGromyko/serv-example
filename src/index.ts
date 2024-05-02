@@ -72,7 +72,12 @@ app.put('/courses/:id', (req: Request, res: Response) => {
 })
 
 app.get('/favicon.ico', (req: Request, res: Response) => {
-    res.status(200).sendFile('favicon.ico', {root: './public'})
+    if (favicon) {
+        res.setHeader('Content-Type', 'image/x-icon');
+        fs.createReadStream(favicon).pipe(res);
+        res.status(HTTP_STATUSES.OK_200)
+    } else res.status(200).sendFile('favicon.ico', {root: './'})
+
 })
 
 app.listen(port, () => {
