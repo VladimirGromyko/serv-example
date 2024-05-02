@@ -9,9 +9,7 @@ const port = process.env.PORT || 3005
 
 const path = require('path');
 const fs = require('fs');
-const favicon = process.env.PORT
-    ? path.join('favicon.ico')
-    : path.join('public', 'favicon.ico');
+const favicon = path.join('public', 'favicon.ico');
 const db = {
     courses: [
         {id: 1, title: 'front-end'},
@@ -73,6 +71,7 @@ app.put('/courses/:id', (req: Request, res: Response) => {
         .json(course)
 })
 
+app.use("/public", express.static('public'));
 app.get('/favicon.ico', (req: Request, res: Response) => {
     res.setHeader('Content-Type', 'image/x-icon');
     fs.createReadStream(favicon).pipe(res);
