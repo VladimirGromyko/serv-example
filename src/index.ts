@@ -9,7 +9,7 @@ const port = process.env.PORT || 3005
 
 const path = require('path');
 const fs = require('fs');
-const favicon = path.join('', 'public', 'favicon.ico');
+
 const db = {
     courses: [
         {id: 1, title: 'front-end'},
@@ -70,15 +70,7 @@ app.put('/courses/:id', (req: Request, res: Response) => {
         .status(HTTP_STATUSES.CREATED_201)
         .json(course)
 })
-
-app.get('/favicon.ico', (req: Request, res: Response) => {
-    if (favicon) {
-        res.setHeader('Content-Type', 'image/x-icon');
-        fs.createReadStream(favicon).pipe(res);
-        res.status(HTTP_STATUSES.OK_200)
-    } else res.status(200).sendFile('favicon.ico', {root: './'})
-
-})
+app.use('/favicon.ico', express.static('public/favicon.ico'));
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
