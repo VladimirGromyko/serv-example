@@ -70,8 +70,6 @@ app.put('/courses/:id', (req: Request, res: Response) => {
         .status(HTTP_STATUSES.CREATED_201)
         .json(course)
 })
-
-app.use("/public", express.static('public'));
 app.get('/favicon.ico', (req: Request, res: Response) => {
     res.setHeader('Content-Type', 'image/x-icon');
     fs.createReadStream(favicon).pipe(res);
