@@ -74,6 +74,7 @@ app.put('/courses/:id', (req: Request, res: Response) => {
 app.get('/favicon.ico', (req: Request, res: Response) => {
     res.setHeader('Content-Type', 'image/x-icon');
     fs.createReadStream(favicon).pipe(res);
+    res.status(204)
 })
 
 app.listen(port, () => {
