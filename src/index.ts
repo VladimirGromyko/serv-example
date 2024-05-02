@@ -67,7 +67,7 @@ app.put('/courses/:id', (req: Request, res: Response) => {
         .status(HTTP_STATUSES.CREATED_201)
         .json(course)
 })
-app.use('/favicon.ico', express.static('public/favicon.ico'));
+app.use('/favicon.ico', express.static('favicon.ico'));
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
