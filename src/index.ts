@@ -72,7 +72,7 @@ app.put('/courses/:id', (req: Request, res: Response) => {
 })
 
 app.get('/favicon.ico', (req: Request, res: Response) => {
-    res.status(200).sendFile('favicon.ico', {root: '/public/'})
+    res.status(200).sendFile('favicon.ico', {root: './public'})
 })
 
 app.listen(port, () => {
