@@ -7,7 +7,7 @@ import HTTP_STATUSES from "../utils/httpStatuses";
 import {CreateCourseModel} from "../models/CreateCourseModel";
 import {UpdateCourseModel} from "../models/UpdateCourseModel";
 import {DBType} from "../db/db";
-import {coursesRepository, getCourseViewModel} from "../repositories/coursesRepository";
+import {coursesRepository} from "../repositories/coursesRepository";
 
 
 export const getCoursesRouter = (db: DBType) => {
